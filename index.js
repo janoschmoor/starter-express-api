@@ -1,7 +1,16 @@
-const express = require('express')
-const app = express()
-app.all('/', (req, res) => {
-    console.log("Just got a request!")
-    res.send('Yo sick this is live!')
-})
-app.listen(process.env.PORT || 3000)
+const express = require('express');
+const app = express();
+
+// Serve static files from the "public" folder
+app.use(express.static('public'));
+
+// Define a route for the home page
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+// Start the server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
