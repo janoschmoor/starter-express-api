@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/public/index.html');
 });
 app.get('/r', (req, res) => {
-    const files = ["n1", "n0"]; 
+    const files = ["n1", "n0"];
     const file = files[Math.floor(Math.random() * files.length)];
     res.sendFile(__dirname + '/public/r/'+file+'.html');
   });
